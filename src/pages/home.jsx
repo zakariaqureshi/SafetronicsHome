@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Aboutus from "../assets/Aboutus.jpg";
-import Logo from "../assets/logo.jpg";
-import Menu from "../assets/bg_image.jpg";
+// import Menu from "../assets/bg_image.jpg";
 export default function Home() {
 
     const slides = [
@@ -12,18 +11,18 @@ export default function Home() {
             title: "Are You Secure? Cyberattack",
             description: "No matter what your company size is, you are at the mercy of cyberattacks. Let SecureNet Team help you become ISO 27001 certified.",
         },
-        {
-            id: 2,
-            image: Logo,
-            title: "Stay Protected with ISO",
-            description: "Gain access to the latest ISO certifications to keep your business secure.",
-        },
-        {
-            id: 3,
-            image: Menu,
-            title: "Penetration Testing Services",
-            description: "Ensure your application is safe with our penetration testing.",
-        },
+        // {
+        //     id: 2,
+        //     image: Logo,
+        //     title: "Stay Protected with ISO",
+        //     description: "Gain access to the latest ISO certifications to keep your business secure.",
+        // },
+        // {
+        //     id: 3,
+        //     image: Menu,
+        //     title: "Penetration Testing Services",
+        //     description: "Ensure your application is safe with our penetration testing.",
+        // },
     ];
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -99,7 +98,7 @@ export default function Home() {
             {/* Section: What We Offer */}
             <section className="py-16 bg-indigo-50">
                 <div className="max-w-screen-xl mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center text-indigo-600 mb-12 underline">
+                    <h2 className="text-3xl font-bold text-center text-black mb-12 underline">
                         Our Services
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -140,11 +139,11 @@ export default function Home() {
                                 key={index}
                                 className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
                             >
-                                <h3 className="text-2xl font-semibold text-indigo-600 mb-4">
+                                <h3 className="text-2xl font-semibold text-black mb-4">
                                     {service.title}
                                 </h3>
                                 <p className="text-gray-700 mb-4">{service.description}</p>
-                                <a href="#" className="text-indigo-600 font-semibold hover:underline">
+                                <a href="#" className="text-black font-semibold hover:underline">
                                     Learn More
                                 </a>
                             </div>
@@ -152,7 +151,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <footer className="bg-indigo-600 text-white py-6">
+            <footer className="bg-black text-white py-6">
                 <div className="max-w-screen-xl mx-auto px-4 text-center">
                     <p>&copy; 2024 Safetronics. All rights reserved.</p>
                 </div>

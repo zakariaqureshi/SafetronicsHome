@@ -82,7 +82,7 @@ function AboutPage() {
             
 
       {/* Footer */}
-      <footer className="bg-indigo-600 text-white py-6">
+      <footer className="bg-black text-white py-6">
         <div className="max-w-screen-xl mx-auto px-4 text-center">
           <p>&copy; 2024 Safetronics. All rights reserved.</p>
         </div>

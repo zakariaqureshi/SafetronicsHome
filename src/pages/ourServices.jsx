@@ -18,7 +18,7 @@ function ServicesPage() {
       {/* Services Section */}
       <section className="py-16 bg-white">
         <div className="max-w-screen-xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-indigo-600 mb-12">
+          <h2 className="text-3xl font-bold text-center text-black mb-12">
             What We Offer
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -112,7 +112,7 @@ function ServicesPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-indigo-600 text-white py-6">
+      <footer className="bg-black text-white py-6">
         <div className="max-w-screen-xl mx-auto px-4 text-center">
           <p>&copy; 2024 Safetronics. All rights reserved.</p>
         </div>

@@ -40,7 +40,7 @@ export default function Header() {
                             <span>📧 info@unihopekuwait.com</span>
                         </div>
                         <div>
-                            <span>📞 +965 22440417</span>
+                            <span>📞 +965  9976 6725</span>
                         </div>
                     </div>
 
@@ -72,8 +72,8 @@ export default function Header() {
                                     onClick={handleLinkClick}
                                     to='/home'
                                     className={({ isActive }) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-blue-700' : 'text-gray-700'
-                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-white`
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-softblue-700' : 'text-gray-700'
+                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-black`
                                     }
                                 >
                                     Home
@@ -85,7 +85,7 @@ export default function Header() {
                                     to='/about'
                                     className={({ isActive }) =>
                                         `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-softblue-700' : 'text-gray-700'
-                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-white`
+                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-black`
                                     }
                                 >
                                     About Us
@@ -97,7 +97,7 @@ export default function Header() {
                                     to='/services'
                                     className={({ isActive }) =>
                                         `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-softblue-700' : 'text-gray-700'
-                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-white`
+                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-black`
                                     }
                                 >
                                     Our Services
@@ -109,7 +109,7 @@ export default function Header() {
                                     to='/partners'
                                     className={({ isActive }) =>
                                         `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-softblue-700' : 'text-gray-700'
-                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-white`
+                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-black`
                                     }
                                 >
                                     Our Partners
@@ -121,7 +121,7 @@ export default function Header() {
                                     to='/contact'
                                     className={({ isActive }) =>
                                         `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-softblue-700' : 'text-gray-700'
-                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-white`
+                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-black`
                                     }
                                 >
                                     Contact Us
