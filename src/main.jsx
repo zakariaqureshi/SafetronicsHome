@@ -14,6 +14,7 @@ import OurServices from './pages/ourServices.jsx'
 import OurPartners from './pages/ourPartners.jsx'
 import ContactUs from './pages/contactUs.jsx'
 import Buy from './pages/Buy.jsx'
+import ServiceDetail from './pages/ServiceDetailPage.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,10 @@ const router = createBrowserRouter(
       <Route path='/services' element={<OurServices />} />
       <Route path='/partners' element={<OurPartners />} />
       <Route path='/contact' element={<ContactUs />} />
+      <Route path='/serviceDetails' element={<ServiceDetail />} />
+
+      {/* <Route path='/serviceDetails/:id' element={<ServiceDetail />} /> */}
+
       <Route path='/buy' element={<Buy />} />
     </Route>
   )

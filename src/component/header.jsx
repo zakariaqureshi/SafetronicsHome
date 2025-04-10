@@ -118,6 +118,19 @@ export default function Header() {
                             <li>
                                 <NavLink
                                     onClick={handleLinkClick}
+                                    to='/serviceDetails'
+                                    className={({ isActive }) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-softblue-700' : 'text-gray-700'
+                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-black`
+                                    }
+                                >
+                                    Service Detail
+                                </NavLink>
+                                
+                            </li>
+                            <li>
+                                <NavLink
+                                    onClick={handleLinkClick}
                                     to='/contact'
                                     className={({ isActive }) =>
                                         `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-softblue-700' : 'text-gray-700'
@@ -128,6 +141,8 @@ export default function Header() {
                                 </NavLink>
                                 
                             </li>
+
+
                             <li>
                                 <NavLink
                                     onClick={handleLinkClick}
