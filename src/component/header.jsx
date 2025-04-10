@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from '../assets/Logo.jpg';
+import logo from '../assets/logo.jpg';
 import menu from '../assets/menu.png';
 
 export default function Header() {
