@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from '../assets/logo.jpg';
+import logo from '../assets/Logo.jpg';
 import menu from '../assets/menu.png';
 
 export default function Header() {
@@ -125,6 +125,19 @@ export default function Header() {
                                     }
                                 >
                                     Contact Us
+                                </NavLink>
+                                
+                            </li>
+                            <li>
+                                <NavLink
+                                    onClick={handleLinkClick}
+                                    to='/Buy'
+                                    className={({ isActive }) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-softblue-700' : 'text-gray-700'
+                                        } border-b border-gray-100 lg:border-0 lg:p-0 hover:bg-white lg:hover:bg-transparent hover:text-black`
+                                    }
+                                >
+                                    Buy
                                 </NavLink>
                             </li>
                         </ul>

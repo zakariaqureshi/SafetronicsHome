@@ -13,6 +13,7 @@ import AboutUs from './pages/aboutUs.jsx'
 import OurServices from './pages/ourServices.jsx'
 import OurPartners from './pages/ourPartners.jsx'
 import ContactUs from './pages/contactUs.jsx'
+import Buy from './pages/Buy.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path='/services' element={<OurServices />} />
       <Route path='/partners' element={<OurPartners />} />
       <Route path='/contact' element={<ContactUs />} />
+      <Route path='/buy' element={<Buy />} />
     </Route>
   )
 )
