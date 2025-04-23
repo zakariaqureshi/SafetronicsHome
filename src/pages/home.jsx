@@ -1,161 +1,123 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { FaShieldAlt, FaRobot, FaHeadset, FaCloud, FaMobileAlt, FaTools, FaBrush, FaShoppingCart, FaSearch, FaLock, FaGlobe, FaServer, FaDatabase, FaUserShield } from "react-icons/fa";
 
-import Aboutus from "../assets/Aboutus.jpg";
-// import Menu from "../assets/bg_image.jpg";
 export default function Home() {
-
-    const slides = [
-        {
-            id: 1,
-            image: Aboutus,
-            title: "Are You Secure? Cyberattack",
-            description: "No matter what your company size is, you are at the mercy of cyberattacks. Let SecureNet Team help you become ISO 27001 certified.",
-        },
-        // {
-        //     id: 2,
-        //     image: Logo,
-        //     title: "Stay Protected with ISO",
-        //     description: "Gain access to the latest ISO certifications to keep your business secure.",
-        // },
-        // {
-        //     id: 3,
-        //     image: Menu,
-        //     title: "Penetration Testing Services",
-        //     description: "Ensure your application is safe with our penetration testing.",
-        // },
-    ];
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    // Automatically transition slides
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) =>
-                prevIndex === slides.length - 1 ? 0 : prevIndex + 1
-            );
-        }, 5000); // Change slide every 5 seconds
-        return () => clearInterval(interval);
-    }, [slides.length]);
-
-    return (
-        <div>
-            {/* Image Slider */}
-            <div className="relative w-full h-[300px] md:h-[400px] overflow-hidden mt-10">
-                <div
-                    className="flex transition-transform duration-1000"
-                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                >
-                    {slides.map((slide) => (
-                        <div
-                            key={slide.id}
-                            className="w-full flex-shrink-0"
-                            style={{
-                                backgroundImage: `url(${slide.image})`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                height: "50vh",
-                                padding:'15'
-                            }}
-                        >
-                            
-                        </div>
-                    ))}
-                </div>
-
-                {/* Navigation Buttons */}
-                <button
-                    className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-                    onClick={() =>
-                        setCurrentIndex((prevIndex) =>
-                            prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-                        )
-                    }
-                >
-                    &#10094;
-                </button>
-                <button
-                    className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-                    onClick={() =>
-                        setCurrentIndex((prevIndex) =>
-                            prevIndex === slides.length - 1 ? 0 : prevIndex + 1
-                        )
-                    }
-                >
-                    &#10095;
-                </button>
-
-                {/* Indicators */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                    {slides.map((_, index) => (
-                        <div
-                            key={index}
-                            className={`w-3 h-3 rounded-full ${currentIndex === index ? "bg-blue-500" : "bg-gray-400"
-                                }`}
-                        />
-                    ))}
-                </div>
-            </div>
-
-            {/* Section: What We Offer */}
-            <section className="py-16 bg-indigo-50">
-                <div className="max-w-screen-xl mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center text-black mb-12 underline">
-                        Our Services
-                    </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-                        {/* Services */}
-                        {[
-                            {
-                                title: "Smart Surveillance Systems",
-                                description:
-                                    "Our smart surveillance systems use AI and machine learning to ensure top-notch security for your home or business. Monitor everything in real-time from your mobile device.",
-                            },
-                            {
-                                title: "Advanced Alarm Solutions",
-                                description:
-                                    "Our advanced alarm solutions are designed to protect you against intrusions and emergencies. Get instant notifications and ensure your safety at all times.",
-                            },
-                            {
-                                title: "Cloud Security Solutions",
-                                description:
-                                    "Protect your data with our cloud-based security solutions. We provide secure data storage and access management to ensure your business stays protected.",
-                            },
-                            {
-                                title: "Mobile App Development",
-                                description:
-                                    "Our team of expert developers can create user-friendly mobile apps to help you manage and monitor your security system directly from your smartphone.",
-                            },
-                            {
-                                title: "Consultation & Support",
-                                description:
-                                    "We offer expert consultation and ongoing support to help you optimize your security system. Let us guide you through your security challenges and solutions.",
-                            },
-                            {
-                                title: "Security System Installation",
-                                description:
-                                    "Our team provides professional installation of all your security devices. We ensure that your system is set up for maximum effectiveness and reliability.",
-                            },
-                        ].map((service, index) => (
-                            <div
-                                key={index}
-                                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                            >
-                                <h3 className="text-2xl font-semibold text-black mb-4">
-                                    {service.title}
-                                </h3>
-                                <p className="text-gray-700 mb-4">{service.description}</p>
-                                <a href="#" className="text-black font-semibold hover:underline">
-                                    Learn More
-                                </a>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-            <footer className="bg-black text-white py-6">
-                <div className="max-w-screen-xl mx-auto px-4 text-center">
-                    <p>&copy; 2024 Safetronics. All rights reserved.</p>
-                </div>
-            </footer>
+  return (
+    <div className="font-sans text-gray-900 bg-gradient-to-b from-teal-400 to-pink-600 min-h-screen pt-20">
+      {/* Hero Section */}
+      <section className="flex items-center justify-center bg-cover bg-center h-[50vh]" style={{ backgroundImage: "url('https://via.placeholder.com/1500x900')" }}>
+        <div className="text-center text-white px-6 md:px-12 py-12 bg-black bg-opacity-50">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Secure Your Future with Safetronic</h1>
+          <p className="text-xl mb-8">Leading the way in cybersecurity, web, and mobile development services.</p>
+          <a href="#services" className="px-8 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-500 transition">Explore Our Services</a>
         </div>
-    );
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-16 bg-gray-100">
+        <div className="container mx-auto text-center">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8">Our Expertise</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+            {/* Service 1 */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaShieldAlt className="text-6xl text-blue-500 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Penetration Testing</h3>
+              <p className="text-gray-600">Ensure your systems are secure against potential threats and vulnerabilities.</p>
+            </div>
+            {/* Service 2 */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaRobot className="text-6xl text-green-500 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">AI & Automation</h3>
+              <p className="text-gray-600">Harness the power of AI to automate processes and improve efficiency.</p>
+            </div>
+            {/* Service 3 */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaHeadset className="text-6xl text-red-500 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">24/7 Support</h3>
+              <p className="text-gray-600">Our experts are always here to assist you with your technical needs.</p>
+            </div>
+            {/* Service 4 */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaCloud className="text-6xl text-indigo-500 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Cloud Solutions</h3>
+              <p className="text-gray-600">Seamless cloud migration and management for your growing business.</p>
+            </div>
+            {/* Service 5 */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaMobileAlt className="text-6xl text-teal-500 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Mobile Development</h3>
+              <p className="text-gray-600">We build powerful and intuitive mobile apps for iOS and Android.</p>
+            </div>
+            {/* Service 6 */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaTools className="text-6xl text-orange-500 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">DevOps & Automation</h3>
+              <p className="text-gray-600">Streamline your workflows and automate infrastructure management.</p>
+            </div>
+            {/* Service 7: UI/UX Design */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaBrush className="text-6xl text-purple-500 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">UI/UX Design</h3>
+              <p className="text-gray-600">Create intuitive, user-friendly designs that enhance user experience.</p>
+            </div>
+            {/* Service 8: E-commerce Development */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaShoppingCart className="text-6xl text-yellow-500 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">E-commerce Development</h3>
+              <p className="text-gray-600">Build scalable and secure e-commerce platforms tailored to your business.</p>
+            </div>
+            {/* Service 9: SEO Optimization */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaSearch className="text-6xl text-pink-500 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">SEO Optimization</h3>
+              <p className="text-gray-600">Improve your website’s visibility and ranking on search engines.</p>
+            </div>
+            {/* Service 10: Cybersecurity Consulting */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaLock className="text-6xl text-blue-600 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Cybersecurity Consulting</h3>
+              <p className="text-gray-600">Expert advice on how to protect your organization from cyber threats.</p>
+            </div>
+            {/* Service 11: Web Development */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaGlobe className="text-6xl text-green-600 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Web Development</h3>
+              <p className="text-gray-600">Create fast, responsive, and scalable websites tailored to your needs.</p>
+            </div>
+            {/* Service 12: Cloud Security */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaServer className="text-6xl text-indigo-600 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Cloud Security</h3>
+              <p className="text-gray-600">Protect your cloud-based assets and data with top-notch security solutions.</p>
+            </div>
+            {/* Service 13: Database Management */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaDatabase className="text-6xl text-yellow-600 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Database Management</h3>
+              <p className="text-gray-600">Manage, scale, and optimize your databases for performance and security.</p>
+            </div>
+            {/* Service 14: Identity & Access Management */}
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+              <FaUserShield className="text-6xl text-red-600 mb-4 mx-auto" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Identity & Access Management</h3>
+              <p className="text-gray-600">Control and secure access to your organization's resources with IAM solutions.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer id="contact" className="bg-gray-900 text-white py-8">
+        <div className="container mx-auto text-center">
+          <p className="mb-4">© 2025 Safetronic. All Rights Reserved.</p>
+          <div className="flex justify-center space-x-6">
+            <a href="#" className="hover:text-yellow-400">Facebook</a>
+            <a href="#" className="hover:text-yellow-400">Twitter</a>
+            <a href="#" className="hover:text-yellow-400">LinkedIn</a>
+            <a href="#" className="hover:text-yellow-400">Instagram</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
 }

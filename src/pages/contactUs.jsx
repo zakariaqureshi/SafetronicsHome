@@ -1,103 +1,146 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import backgroundImage from '../assets/bg_image.jpg'; // Adjust path if needed
+import backgroundImage from '../assets/bg_image.jpg';
 
-function ContactForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+const ContactForm = () => {
+  const { 
+    register, 
+    handleSubmit, 
+    formState: { errors, isSubmitting }, 
+    reset 
+  } = useForm();
 
-  const onSubmit = (data) => {
-    console.log('Form submitted', data);
-  };
+  const onSubmit = useCallback(async (data) => {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Form submitted', data);
+      reset();
+    } catch (error) {
+      console.error('Submission error', error);
+    }
+  }, [reset]);
+
+  const InputField = ({ id, label, type = 'text', placeholder, validation, error }) => (
+    <div className="mb-4">
+      <label htmlFor={id} className="block text-sm font-medium text-white mb-2">
+        {label}
+      </label>
+      {type === 'textarea' ? (
+        <textarea
+          id={id}
+          rows={4}
+          {...register(id, validation)}
+          className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-900 text-white placeholder-gray-400"
+          placeholder={placeholder}
+        />
+      ) : (
+        <input
+          type={type}
+          id={id}
+          {...register(id, validation)}
+          className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-900 text-white placeholder-gray-400"
+          placeholder={placeholder}
+        />
+      )}
+      {error && <p className="text-red-500 text-xs mt-1">{error.message}</p>}
+    </div>
+  );
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Main section divided into 2 halves */}
-      <div className="flex flex-grow">
-        {/* Left side: BG Image only */}
-        <div
-          className="w-1/2 bg-no-repeat bg-cover bg-center"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        ></div>
+    <div className="min-h-[calc(100vh-4rem)] pt-16 bg-gradient-to-r from-black to-gray-900">
+      <div className="flex flex-col md:flex-row h-full">
+        <div 
+          className="hidden md:block md:w-1/2 bg-cover bg-center bg-no-repeat rounded-r-3xl shadow-lg"
+          style={{ 
+            backgroundImage: `url(${backgroundImage})`,
+            minHeight: 'calc(100vh - 4rem)' 
+          }}
+          aria-hidden="true"
+        />
 
-        {/* Right side: Form with black background */}
-        <div className="w-1/2 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="w-full max-w-lg p-8 bg-black bg-opacity-80 rounded-lg shadow-lg">
-            <h2 className="text-3xl font-semibold text-center text-white mb-6">Contact Us</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {/* Name Field */}
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-white mb-2">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  {...register('name', { required: 'Name is required' })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-800 text-white placeholder-gray-400"
-                  placeholder="Enter your name"
-                />
-                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
-              </div>
+        <div className="w-full md:w-1/2 flex items-center justify-center p-4">
+          <div className="w-full max-w-lg bg-black bg-opacity-80 rounded-3xl shadow-2xl p-8">
+            <h2 className="text-3xl font-extrabold text-center text-white mb-6">
+              Get in Touch with Safetronics
+            </h2>
+            <p className="text-center text-gray-300 mb-6 text-sm">
+              Reach out to us for smart safety solutions, cybersecurity services, and expert tech consultations.
+            </p>
 
-              {/* Contact Number Field */}
-              <div>
-                <label htmlFor="contactNumber" className="block text-sm font-medium text-white mb-2">Contact Number</label>
-                <input
-                  type="text"
-                  id="contactNumber"
-                  {...register('contactNumber', { required: 'Contact number is required' })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-800 text-white placeholder-gray-400"
-                  placeholder="Enter your contact number"
-                />
-                {errors.contactNumber && <p className="text-red-500 text-xs mt-1">{errors.contactNumber.message}</p>}
-              </div>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              <InputField
+                id="name"
+                label="Full Name"
+                placeholder="Enter your name"
+                validation={{ required: 'Name is required' }}
+                error={errors.name}
+              />
 
-              {/* Email Field */}
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  {...register('email', { required: 'Email is required' })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-800 text-white placeholder-gray-400"
-                  placeholder="Enter your email"
-                />
-                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
-              </div>
+              <InputField
+                id="contactNumber"
+                label="Contact Number"
+                placeholder="Enter your contact number"
+                validation={{ 
+                  required: 'Contact number is required',
+                  pattern: {
+                    value: /^[0-9+\s]+$/,
+                    message: 'Invalid phone number'
+                  }
+                }}
+                error={errors.contactNumber}
+              />
 
-              {/* Message Field */}
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-white mb-2">Message</label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  {...register('Message', { required: 'Message is required' })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-800 text-white placeholder-gray-400"
-                  placeholder="Write your message here"
-                />
-                {errors.Message && <p className="text-red-500 text-xs mt-1">{errors.Message.message}</p>}
-              </div>
+              <InputField
+                id="email"
+                type="email"
+                label="Email Address"
+                placeholder="Enter your email"
+                validation={{ 
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Invalid email address"
+                  }
+                }}
+                error={errors.email}
+              />
 
-              {/* Submit Button */}
-              <div>
-                <button
-                  type="submit"
-                  className="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-                >
-                  Submit
-                </button>
-              </div>
+              <InputField
+                id="message"
+                type="textarea"
+                label="Your Message"
+                placeholder="Write your message here"
+                validation={{ 
+                  required: 'Message is required',
+                  minLength: {
+                    value: 10,
+                    message: "Message must be at least 10 characters"
+                  }
+                }}
+                error={errors.message}
+              />
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full py-3 rounded-lg font-semibold text-white transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
+                  isSubmitting 
+                    ? 'bg-indigo-800 cursor-not-allowed' 
+                    : 'bg-indigo-600 hover:bg-indigo-700'
+                }`}
+              >
+                {isSubmitting ? 'Submitting...' : 'Send Message'}
+              </button>
             </form>
           </div>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-black text-white py-6">
-        <div className="max-w-screen-xl mx-auto px-4 text-center">
-          <p>&copy; 2024 Safetronics. All rights reserved.</p>
-        </div>
+      <footer className="bg-black text-white py-6 text-center mt-8 border-t border-gray-800">
+        <p className="text-sm">&copy; {new Date().getFullYear()} Safetronics. All rights reserved.</p>
       </footer>
     </div>
   );
-}
+};
 
-export default ContactForm;
+export default React.memo(ContactForm);
