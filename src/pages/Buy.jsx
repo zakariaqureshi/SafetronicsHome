@@ -93,7 +93,7 @@ function Buy() {
               <span>{product.brand}</span>
             </div>
             <div className="text-lg font-semibold text-blue-600 mb-3">
-              KWD{product.salePrice > 0 ? product.salePrice : product.price}
+              KWD {product.salePrice > 0 ? product.salePrice : product.price}
             </div>
             <button
               onClick={() => window.location.href = 'https://safetronicstore.onrender.com/shop/home'}
