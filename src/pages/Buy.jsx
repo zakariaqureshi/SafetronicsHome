@@ -6,6 +6,8 @@ function Buy() {
   const [products, setProducts] = useState([]);
   const [displayedProducts, setDisplayedProducts] = useState([]);
 
+  //https://safetronicecommerceserver.onrender.com/api/shop/products/get
+  //http://localhost:8080/api/shop/products/get
   // Fetch all products from the backend
   const fetchProducts = async () => {
     try {
@@ -91,7 +93,7 @@ function Buy() {
               <span>{product.brand}</span>
             </div>
             <div className="text-lg font-semibold text-blue-600 mb-3">
-              ر.ق {product.salePrice > 0 ? product.salePrice : product.price}
+              KWD{product.salePrice > 0 ? product.salePrice : product.price}
             </div>
             <button
               onClick={() => window.location.href = 'https://safetronicstore.onrender.com/shop/home'}
