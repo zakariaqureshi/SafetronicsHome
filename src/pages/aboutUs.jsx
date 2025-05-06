@@ -39,19 +39,19 @@ function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {/* Team Member 1 */}
             <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-              <h3 className="text-2xl font-semibold text-indigo-600 mb-2">Saef Ali Mehdi</h3>
+              <h3 className="text-2xl font-semibold text-black mb-2">Saef Ali Mehdi</h3>
               <p className="text-gray-700">Sales Manager</p>
               <p className="text-gray-500 mt-2">Saef is the visionary behind Safetronics, constantly pushing boundaries to provide the best experience for our users.</p>
             </div>
             {/* Team Member 2 */}
             <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-              <h3 className="text-2xl font-semibold text-indigo-600 mb-2">Abdullah Ahmad Nour</h3>
+              <h3 className="text-2xl font-semibold text-black mb-2">Abdullah Ahmad Nour</h3>
               <p className="text-gray-700">Sales Operator</p>
               <p className="text-gray-500 mt-2">Abdullah Ahmad Nour plays a crucial role in driving revenue and building relationships with customers.</p>
             </div>
             {/* Team Member 3 */}
             <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-              <h3 className="text-2xl font-semibold text-indigo-600 mb-2">Member 3</h3>
+              <h3 className="text-2xl font-semibold text-black mb-2">Member 3</h3>
               <p className="text-gray-700">Pending</p>
               <p className="text-gray-500 mt-2">Pending</p>
             </div>
