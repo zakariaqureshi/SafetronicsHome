@@ -124,7 +124,7 @@ export default function Header() {
                             <li>
                                 <NavLink
                                     onClick={handleLinkClick}
-                                    to='/Buy'
+                                    to='/buy'
                                     className={({ isActive }) =>
                                         `block py-2 px-4 duration-200 text-lg font-medium ${isActive ? 'text-yellow-300' : 'text-white'} hover:text-yellow-300 hover:bg-white lg:hover:bg-transparent lg:hover:text-yellow-300 transition-all`
                                     }
